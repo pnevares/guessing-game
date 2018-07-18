@@ -1,20 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        Hello World
-      </div>
-    );
-  }
-}
+import App from './app';
 
 ReactDom.render(
   <App />,
