@@ -9,18 +9,23 @@ export default class App extends React.Component {
   constructor() {
     super();
 
+    this.state = this.getInitialState();
+  }
+
+  getInitialState() {
     const word = randomWord();
 
-    this.state = {
+    return {
       word,
       letters: randomLetters(word),
       strikes: 4,
-      matches: Array(word.length).fill(0),
+      // matches: Array(word.length).fill(0),
+      matches: [0, 0, 1, 1, 0, 0],
     };
   }
 
   reset() {
-    this.state = {};
+    this.state = this.getInitialState();
   }
 
   render() {
@@ -36,6 +41,9 @@ export default class App extends React.Component {
         <Strikes count={strikes} />
         <Word word={word} matches={matches} />
         <Letters letters={letters} />
+        <button type="button" onClick={() => this.reset()}>
+          {'Reset'}
+        </button>
       </div>
     );
   }
