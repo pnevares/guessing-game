@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default () => (
+export default ({ letters }) => (
   <p>
-    A B C D E F
+    {letters.map(letter => `${letter} `)}
   </p>
 );

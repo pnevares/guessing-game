@@ -14,7 +14,7 @@ export default class App extends React.Component {
       <div>
         <Strikes />
         <Word />
-        <Letters />
+        <Letters letters={['A', 'B', 'C', 'D', 'E', 'F']} />
       </div>
     );
   }
