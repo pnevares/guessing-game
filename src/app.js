@@ -12,7 +12,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Strikes />
+        <Strikes count={1} />
         <Word />
         <Letters letters={['A', 'B', 'C', 'D', 'E', 'F']} />
       </div>
