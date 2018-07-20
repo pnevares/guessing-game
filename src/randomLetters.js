@@ -10,6 +10,6 @@ export default (word) => {
     if (letters.indexOf(randomLetter) === -1) {
       letters.push(randomLetter);
     }
-  } while (letters.length < originalCount * 2);
+  } while (letters.length < originalCount * 3);
   return letters.sort();
 };

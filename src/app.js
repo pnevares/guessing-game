@@ -21,11 +21,22 @@ export default class App extends React.Component {
       letters: randomLetters(word),
       strikes: 0,
       matches: Array(word.length).fill(false),
+      done: false,
     };
   }
 
   onLetterClick(letter) {
-    const { word, strikes, matches } = this.state;
+    const {
+      word,
+      strikes,
+      matches,
+      done,
+    } = this.state;
+
+    if (done) {
+      return;
+    }
+
     let newStrikes = strikes;
     const matched = word.split('').reduce((m, c, i) => {
       if (c === letter) {
@@ -39,7 +50,13 @@ export default class App extends React.Component {
       newStrikes += 1;
     }
 
-    this.setState({ strikes: newStrikes, matches });
+    const newDone = newStrikes === 6 || matches.filter(c => !c).length === 0;
+
+    this.setState({
+      strikes: newStrikes,
+      matches,
+      done: newDone,
+    });
   }
 
   reset() {
@@ -52,6 +69,7 @@ export default class App extends React.Component {
       word,
       letters,
       matches,
+      done,
     } = this.state;
 
     return (
@@ -62,6 +80,7 @@ export default class App extends React.Component {
         <button type="button" onClick={() => this.reset()}>
           {'Reset'}
         </button>
+        {done && ' Game over!'}
       </div>
     );
   }
