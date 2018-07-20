@@ -10,6 +10,7 @@ export default class App extends React.Component {
     super();
 
     this.state = this.getInitialState();
+    this.onLetterClick = this.onLetterClick.bind(this);
   }
 
   getInitialState() {
@@ -18,14 +19,31 @@ export default class App extends React.Component {
     return {
       word,
       letters: randomLetters(word),
-      strikes: 4,
-      // matches: Array(word.length).fill(0),
-      matches: [0, 0, 1, 1, 0, 0],
+      strikes: 0,
+      matches: Array(word.length).fill(false),
     };
   }
 
+  onLetterClick(letter) {
+    const { word, strikes, matches } = this.state;
+    let newStrikes = strikes;
+    const matched = word.split('').reduce((m, c, i) => {
+      if (c === letter) {
+        matches[i] = true;
+        return true;
+      }
+      return m;
+    }, false);
+
+    if (!matched) {
+      newStrikes += 1;
+    }
+
+    this.setState({ strikes: newStrikes, matches });
+  }
+
   reset() {
-    this.state = this.getInitialState();
+    this.setState(this.getInitialState());
   }
 
   render() {
@@ -40,7 +58,7 @@ export default class App extends React.Component {
       <div style={{ fontFamily: 'monospace', fontSize: '2em' }}>
         <Strikes count={strikes} />
         <Word word={word} matches={matches} />
-        <Letters letters={letters} />
+        <Letters letters={letters} clickHandler={this.onLetterClick} />
         <button type="button" onClick={() => this.reset()}>
           {'Reset'}
         </button>

@@ -3,14 +3,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Letters = ({ letters }) => (
+const Letters = ({ letters, clickHandler }) => (
   <p>
     {letters.map(letter => (
       <a
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          console.log(`${letter} clicked`);
+          clickHandler(letter);
         }}
         key={letter}
         style={{ paddingRight: '5px' }}
@@ -23,6 +23,7 @@ const Letters = ({ letters }) => (
 
 Letters.propTypes = {
   letters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default Letters;

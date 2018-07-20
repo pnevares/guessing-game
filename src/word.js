@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -16,7 +18,7 @@ const Word = ({ word, matches }) => (
 
 Word.propTypes = {
   word: PropTypes.string.isRequired,
-  matches: PropTypes.arrayOf(PropTypes.number).isRequired,
+  matches: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default Word;
