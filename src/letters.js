@@ -10,7 +10,14 @@ const Letters = ({ letters, clickHandler }) => (
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          clickHandler(letter);
+          const matched = clickHandler(letter);
+          if (matched) {
+            e.target.style.color = '#7f7';
+          } else {
+            e.target.style.color = '#f00';
+          }
+          e.target.style.textDecoration = 'none';
+          e.target.style.cursor = 'default';
         }}
         key={letter}
         style={{ paddingRight: '5px' }}

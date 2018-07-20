@@ -34,7 +34,7 @@ export default class App extends React.Component {
     } = this.state;
 
     if (done) {
-      return;
+      return false;
     }
 
     let newStrikes = strikes;
@@ -57,6 +57,8 @@ export default class App extends React.Component {
       matches,
       done: newDone,
     });
+
+    return matched;
   }
 
   reset() {
