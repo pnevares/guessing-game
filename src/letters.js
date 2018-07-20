@@ -1,29 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid, no-console */
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import Letter from './letter';
 
 const Letters = ({ letters, clickHandler }) => (
   <p>
     {letters.map(letter => (
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          const matched = clickHandler(letter);
-          if (matched) {
-            e.target.style.color = '#7f7';
-          } else {
-            e.target.style.color = '#f00';
-          }
-          e.target.style.textDecoration = 'none';
-          e.target.style.cursor = 'default';
-        }}
+      <Letter
         key={letter}
-        style={{ paddingRight: '5px' }}
-      >
-        {letter}
-      </a>
+        letter={letter}
+        clickHandler={clickHandler}
+      />
     ))}
   </p>
 );
