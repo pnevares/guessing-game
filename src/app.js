@@ -11,6 +11,7 @@ export default class App extends React.Component {
 
     this.state = this.getInitialState();
     this.onLetterClick = this.onLetterClick.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   getInitialState() {
@@ -84,7 +85,7 @@ export default class App extends React.Component {
         <Strikes count={strikes} />
         <Word word={word} matches={matches} />
         <Letters letters={letters} usedLetters={usedLetters} clickHandler={this.onLetterClick} />
-        <button type="button" onClick={() => this.reset()}>
+        <button type="button" onClick={this.reset}>
           {'Reset'}
         </button>
         {done && ' Game over!'}
