@@ -3,6 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <title>Guessing</title>
+    <style type="text/css">
+      #root {
+        font-family: monospace;
+        font-size: 2em;
+      }
+      button {
+        font-family: monospace;
+      }
+      button, span {
+        margin-right: 5px;
+      }
+      span.wrong {
+        color: #f00;
+      }
+      span.default {
+        color: #ccc;
+      }
+      button:disabled {
+        color: #ddd;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

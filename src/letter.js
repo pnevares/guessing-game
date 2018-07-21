@@ -6,11 +6,8 @@ import PropTypes from 'prop-types';
 const Letter = ({ letter, clickHandler, used }) => (
   <button
     type="button"
-    onClick={() => {
-      clickHandler(letter);
-    }}
+    onClick={() => clickHandler(letter) }
     disabled={used}
-    style={{ marginRight: '5px' }}
   >
     {letter}
   </button>

@@ -1,7 +1,7 @@
 export default (word) => {
-  const letters = word.split('').reduce((a, c) => {
-    return a.indexOf(c) === -1 ? a.concat(c) : a;
-  }, []);
+  const letters = word
+    .split('')
+    .reduce((a, c) => (a.indexOf(c) === -1 ? a.concat(c) : a), []);
 
   const originalCount = letters.length;
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');

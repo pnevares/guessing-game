@@ -7,10 +7,10 @@ export default class Strikes extends React.Component {
     const strikes = [];
 
     for (let i = 0; i < 6; i += 1) {
-      const color = i < count ? '#f00' : '#ccc';
+      const status = i < count ? 'wrong' : 'default';
       strikes.push(
         <span
-          style={{ marginRight: '5px', color }}
+          className={status}
           key={i}
         >
           X

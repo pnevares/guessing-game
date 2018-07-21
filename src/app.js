@@ -80,7 +80,7 @@ export default class App extends React.Component {
     } = this.state;
 
     return (
-      <div style={{ fontFamily: 'monospace', fontSize: '2em' }}>
+      <div>
         <Strikes count={strikes} />
         <Word word={word} matches={matches} />
         <Letters letters={letters} usedLetters={usedLetters} clickHandler={this.onLetterClick} />
