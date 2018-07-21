@@ -4,31 +4,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Letter = ({ letter, clickHandler, used }) => (
-  <a
-    href="#"
-    onClick={(e) => {
-      e.preventDefault();
-      if (used) {
-        return;
-      }
-
-      const matched = clickHandler(letter);
-      if (matched === undefined) {
-        return;
-      }
-
-      if (matched) {
-        e.target.style.color = '#7f7';
-      } else {
-        e.target.style.color = '#f00';
-      }
-      e.target.style.textDecoration = 'none';
-      e.target.style.cursor = 'default';
+  <button
+    type="button"
+    onClick={() => {
+      clickHandler(letter);
     }}
+    disabled={used}
     style={{ marginRight: '5px' }}
   >
     {letter}
-  </a>
+  </button>
 );
 
 Letter.propTypes = {
