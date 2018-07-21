@@ -1,21 +1,19 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Letter = ({ letter, clickHandler, used }) => (
+const Letter = ({ clickHandler, letter, used }) => (
   <button
-    type="button"
-    onClick={() => clickHandler(letter) }
     disabled={used}
+    onClick={() => clickHandler(letter)}
+    type="button"
   >
     {letter}
   </button>
 );
 
 Letter.propTypes = {
-  letter: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
+  letter: PropTypes.string.isRequired,
   used: PropTypes.bool.isRequired,
 };
 

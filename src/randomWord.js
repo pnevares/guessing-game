@@ -12,5 +12,7 @@ export default () => {
     'ABOUND',
   ];
 
-  return words[Math.floor(Math.random() * words.length)].toUpperCase();
+  return words[
+    Math.floor(Math.random() * words.length)
+  ].toUpperCase();
 };

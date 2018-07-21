@@ -1,9 +1,9 @@
 import React from 'react';
+import Letters from './letters';
 import Strikes from './strikes';
 import Word from './word';
-import Letters from './letters';
-import randomWord from './randomWord';
 import randomLetters from './randomLetters';
+import randomWord from './randomWord';
 
 export default class App extends React.Component {
   constructor() {
@@ -17,22 +17,22 @@ export default class App extends React.Component {
     const word = randomWord();
 
     return {
-      word,
-      letters: randomLetters(word),
-      strikes: 0,
-      matches: Array(word.length).fill(false),
-      usedLetters: [],
       done: false,
+      letters: randomLetters(word),
+      matches: Array(word.length).fill(false),
+      strikes: 0,
+      usedLetters: [],
+      word,
     };
   }
 
   onLetterClick(letter) {
     const {
-      word,
-      strikes,
-      matches,
-      usedLetters,
       done,
+      matches,
+      strikes,
+      usedLetters,
+      word,
     } = this.state;
 
     if (done) {
@@ -57,9 +57,9 @@ export default class App extends React.Component {
     const newDone = newStrikes === 6 || matches.filter(c => !c).length === 0;
 
     this.setState({
-      strikes: newStrikes,
-      matches,
       done: newDone,
+      matches,
+      strikes: newStrikes,
     });
 
     return matched;
@@ -71,12 +71,12 @@ export default class App extends React.Component {
 
   render() {
     const {
-      strikes,
-      word,
+      done,
       letters,
       matches,
+      strikes,
       usedLetters,
-      done,
+      word,
     } = this.state;
 
     return (
