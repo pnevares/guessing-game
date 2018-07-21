@@ -1,14 +1,16 @@
-export default () => 'PUZZLE';
+export default () => {
+  const words = [
+    'VIABLE',
+    'ASCEND',
+    'COUPLE',
+    'DOWNER',
+    'EXEMPT',
+    'PRAISE',
+    'ADVICE',
+    'ZOMBIE',
+    'RECIPE',
+    'ABOUND',
+  ];
 
-/*
-viable
-ascend
-couple
-downer
-exempt
-praise
-advice
-zombie
-recipe
-abound
-*/
+  return words[Math.floor(Math.random() * words.length)].toUpperCase();
+};
