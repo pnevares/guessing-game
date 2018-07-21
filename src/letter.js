@@ -25,7 +25,7 @@ const Letter = ({ letter, clickHandler, used }) => (
       e.target.style.textDecoration = 'none';
       e.target.style.cursor = 'default';
     }}
-    style={{ paddingRight: '5px' }}
+    style={{ marginRight: '5px' }}
   >
     {letter}
   </a>

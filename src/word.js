@@ -7,7 +7,7 @@ const Word = ({ word, matches }) => (
   <p>
     {word.split('').map((letter, index) => (
       <span
-        style={{ paddingRight: '5px' }}
+        style={{ marginRight: '5px' }}
         key={`${letter}${index}`}
       >
         { matches[index] ? letter : '_'}
