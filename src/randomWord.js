@@ -1,15 +1,25 @@
 export default () => {
   const words = [
-    'VIABLE',
+    'ABOUND',
+    'ADVICE',
+    'ARTIST',
     'ASCEND',
+    'CLASSY',
     'COUPLE',
     'DOWNER',
     'EXEMPT',
+    'KNIGHT',
     'PRAISE',
-    'ADVICE',
-    'ZOMBIE',
     'RECIPE',
-    'ABOUND',
+    'REALLY',
+    'STARRY',
+    'STATES',
+    'TRACKS',
+    'UNITED',
+    'VIABLE',
+    'WEEKLY',
+    'WOLVES',
+    'ZOMBIE',
   ];
 
   return words[
