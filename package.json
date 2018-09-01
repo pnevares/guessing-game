@@ -1,15 +1,19 @@
 {
   "name": "guessing-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "A hangman-style word guessing game in React.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "eslint ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "game",
+    "react"
+  ],
+  "author": "Pablo Nevares <pablo@nevares.com>",
   "license": "MIT",
+  "repository": "github:pnevares/guessing-game",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
