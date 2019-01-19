@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Letters from './letters';
 import Strikes from './strikes';
 import Word from './word';
 import randomLetters from './randomLetters';
 import randomWord from './randomWord';
 
-export default class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = this.getInitialState();
-    this.onLetterClick = this.onLetterClick.bind(this);
-    this.reset = this.reset.bind(this);
-  }
+export default class App extends PureComponent {
+  state = this.getInitialState();
 
   getInitialState() {
     const word = randomWord();
@@ -27,7 +21,7 @@ export default class App extends React.Component {
     };
   }
 
-  onLetterClick(letter) {
+  onLetterClick = (letter) => {
     const {
       done,
       matches,
@@ -37,15 +31,16 @@ export default class App extends React.Component {
     } = this.state;
 
     if (done) {
-      return undefined;
+      return null;
     }
 
-    usedLetters.push(letter);
-
     let newStrikes = strikes;
+    const newMatches = matches.slice();
+    const newUsedLetters = usedLetters.concat(letter);
+
     const matched = word.split('').reduce((m, c, i) => {
       if (c === letter) {
-        matches[i] = true;
+        newMatches[i] = true;
         return true;
       }
       return m;
@@ -55,20 +50,21 @@ export default class App extends React.Component {
       newStrikes += 1;
     }
 
-    const newDone = newStrikes === 6 || matches.filter(c => !c).length === 0;
+    const newDone = newStrikes === 6 || newMatches.filter(c => !c).length === 0;
 
     this.setState({
       done: newDone,
-      matches,
+      matches: newMatches,
       strikes: newStrikes,
+      usedLetters: newUsedLetters,
     });
 
     return matched;
-  }
+  };
 
-  reset() {
+  onResetClick = () => {
     this.setState(this.getInitialState());
-  }
+  };
 
   render() {
     const {
@@ -85,7 +81,7 @@ export default class App extends React.Component {
         <Strikes count={strikes} />
         <Word word={word} matches={matches} />
         <Letters letters={letters} usedLetters={usedLetters} clickHandler={this.onLetterClick} />
-        <button type="button" onClick={this.reset}>
+        <button type="button" onClick={this.onResetClick}>
           {'Reset'}
         </button>
         {done && ' Game over!'}
