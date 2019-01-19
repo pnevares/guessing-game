@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const Word = ({ matches, word }) => (
+const Word = memo(({ matches, word }) => (
   <p>
     {word.split('').map((letter, index) => (
       <span key={`${letter}${index}`}>
@@ -11,7 +11,7 @@ const Word = ({ matches, word }) => (
       </span>
     ))}
   </p>
-);
+));
 
 Word.propTypes = {
   matches: PropTypes.arrayOf(PropTypes.bool).isRequired,

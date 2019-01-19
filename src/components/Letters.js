@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import Letter from './letter';
+import Letter from './Letter';
 
-const Letters = ({ clickHandler, letters, usedLetters }) => (
+const Letters = memo(({ clickHandler, letters, usedLetters }) => (
   <p>
     {letters.map(letter => (
       <Letter
@@ -16,7 +16,7 @@ const Letters = ({ clickHandler, letters, usedLetters }) => (
       />
     ))}
   </p>
-);
+));
 
 Letters.propTypes = {
   clickHandler: PropTypes.func.isRequired,

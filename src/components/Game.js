@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import Letters from './letters';
-import Strikes from './strikes';
-import Word from './word';
-import randomLetters from './randomLetters';
-import randomWord from './randomWord';
+import Letters from './Letters';
+import Strikes from './Strikes';
+import Word from './Word';
+import randomLetters from '../randomLetters';
+import randomWord from '../randomWord';
 
 export default class App extends PureComponent {
   state = this.getInitialState();

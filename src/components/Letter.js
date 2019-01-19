@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const Letter = ({ clickHandler, letter, used }) => (
+const Letter = memo(({ clickHandler, letter, used }) => (
   <button
     disabled={used}
     onClick={() => clickHandler(letter)}
@@ -9,7 +9,7 @@ const Letter = ({ clickHandler, letter, used }) => (
   >
     {letter}
   </button>
-);
+));
 
 Letter.propTypes = {
   clickHandler: PropTypes.func.isRequired,
