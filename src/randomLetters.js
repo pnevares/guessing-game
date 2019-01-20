@@ -1,10 +1,10 @@
-export default (word) => {
+export default word => {
   const letters = word
-    .split('')
+    .split("")
     .reduce((a, c) => (a.indexOf(c) === -1 ? a.concat(c) : a), []);
 
   const originalCount = letters.length;
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   do {
     const randomLetter = alphabet[Math.floor(alphabet.length * Math.random())];
