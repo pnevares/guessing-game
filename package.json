@@ -1,11 +1,11 @@
 {
   "name": "guessing-game",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A hangman-style word guessing game in React.",
   "main": "index.js",
   "scripts": {
     "deploy": "gh-pages -d dist",
-    "predeploy": "webpack",
+    "predeploy": "webpack --mode=production",
     "start": "webpack-dev-server",
     "test": "eslint ."
   },
