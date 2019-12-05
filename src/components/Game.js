@@ -73,7 +73,7 @@ export default class App extends PureComponent {
           clickHandler={this.onLetterClick}
         />
         <button type="button" onClick={this.onResetClick}>
-          {"Reset"}
+          Reset
         </button>
         {done && " Game over!"}
       </div>
