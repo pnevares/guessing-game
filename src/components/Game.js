@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import Letters from "./Letters";
 import Strikes from "./Strikes";
 import Word from "./Word";
+import { version } from '../../package.json';
 import randomLetters from "../randomLetters";
 import randomWord from "../randomWord";
 
@@ -65,6 +66,10 @@ export default class App extends PureComponent {
 
     return (
       <div>
+        <h1>
+          Guessing Game v
+          {version}
+        </h1>
         <Strikes count={strikes} />
         <Word word={word} matches={matches} />
         <Letters
