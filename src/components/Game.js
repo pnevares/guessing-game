@@ -26,7 +26,7 @@ export default class App extends PureComponent {
     const { done, matches, strikes, usedLetters, word } = this.state;
 
     if (done) {
-      return null;
+      return;
     }
 
     let newStrikes = strikes;
@@ -53,8 +53,6 @@ export default class App extends PureComponent {
       strikes: newStrikes,
       usedLetters: newUsedLetters
     });
-
-    return matched;
   };
 
   onResetClick = () => {
@@ -62,7 +60,7 @@ export default class App extends PureComponent {
   };
 
   render() {
-    const { done, letters, matches, strikes, usedLetters, word } = this.state;
+    const { letters, matches, strikes, usedLetters, word } = this.state;
 
     return (
       <div>
@@ -80,7 +78,8 @@ export default class App extends PureComponent {
         <button type="button" onClick={this.onResetClick}>
           Reset
         </button>
-        {done && " Game over!"}
+        {strikes === 6 && " Game over!"}
+        {matches.filter(c => !c).length === 0 && " Well done!"}
       </div>
     );
   }
