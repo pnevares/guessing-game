@@ -4,8 +4,9 @@
   "description": "A hangman-style word guessing game in React.",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode=production",
     "deploy": "gh-pages -d dist",
-    "predeploy": "webpack --mode=production",
+    "predeploy": "npm run build",
     "start": "webpack-dev-server",
     "test": "eslint ."
   },
